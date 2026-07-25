@@ -24,9 +24,16 @@ body{
     box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
-h1{
-    text-align:center;
-    margin-top:0;
+.title{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:48px;
+    height:48px;
 }
 
 #examTitle{
@@ -37,34 +44,30 @@ h1{
 }
 
 #answerArea{
-    margin-top:30px;
+    margin:30px auto;
+    max-width:500px;
 }
 
 .answerRow{
+    margin-bottom:25px;
+}
+
+.answerNumber{
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
     margin-bottom:10px;
 }
 
-.answerRow label{
-    display:inline-block;
-    width:120px;
-}
-
-.answerRow select{
-    padding:6px;
-    font-size:16px;
-}
-
-.title{
+.answerButtons{
     display:flex;
     justify-content:center;
-    align-items:center;
-    gap:12px;
-    margin-top:0;
+    gap:15px;
 }
 
-.logo{
-    width:48px;
-    height:48px;
+.answerButtons button{
+    padding:8px 12px;
+    font-size:16px;
 }
 
 </style>
@@ -98,30 +101,36 @@ document.getElementById("examTitle").textContent = "JLPT N5 2012 All";
 const answerArea = document.getElementById("answerArea");
 
 answerArea.innerHTML = `
-<h2>語彙</h2>
+<h2 style="text-align:center;">語彙</h2>
 
 <div class="answerRow">
-問題1　
-<button>[1] ○</button>
-<button>[2] ○</button>
-<button>[3] ○</button>
-<button>[4] ○</button>
+    <div class="answerNumber">問題1</div>
+    <div class="answerButtons">
+        <button>[1] ○</button>
+        <button>[2] ○</button>
+        <button>[3] ○</button>
+        <button>[4] ○</button>
+    </div>
 </div>
 
 <div class="answerRow">
-問題2　
-<button>[1] ○</button>
-<button>[2] ○</button>
-<button>[3] ○</button>
-<button>[4] ○</button>
+    <div class="answerNumber">問題2</div>
+    <div class="answerButtons">
+        <button>[1] ○</button>
+        <button>[2] ○</button>
+        <button>[3] ○</button>
+        <button>[4] ○</button>
+    </div>
 </div>
 
 <div class="answerRow">
-問題3　
-<button>[1] ○</button>
-<button>[2] ○</button>
-<button>[3] ○</button>
-<button>[4] ○</button>
+    <div class="answerNumber">問題3</div>
+    <div class="answerButtons">
+        <button>[1] ○</button>
+        <button>[2] ○</button>
+        <button>[3] ○</button>
+        <button>[4] ○</button>
+    </div>
 </div>
 `;
 
