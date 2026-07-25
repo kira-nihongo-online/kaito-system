@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kaito System</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:20px;
+    background:#f5f5f5;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+}
+
+select,
+button{
+    padding:10px;
+    font-size:16px;
+    margin:5px;
+}
+
+#answerArea{
+    margin-top:30px;
+}
+
+.answerRow{
+    margin-bottom:10px;
+}
+
+.answerRow label{
+    display:inline-block;
+    width:120px;
+}
+
+.answerRow select{
+    width:100px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Kaito System</h1>
+
+<div>
+
+<label>教材</label>
+
+<select id="materialSelect">
+    <option value="">教材を選択してください</option>
+</select>
+
+<button id="startBtn">
+開始
+</button>
+
+</div>
+
+<hr>
+
+<div id="answerArea">
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
