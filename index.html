@@ -116,9 +116,21 @@ Loading...
 
 <script>
 
+const API_URL = "https://script.google.com/macros/s/AKfycbz47LCd1aYpTO0gteNXnlzYVZ4hBk04grk6ezj0Xe6xclm9PhGgMc27qKDHTP3mMVvg/exec";
+
+
+
 document.getElementById("examTitle").textContent = "JLPT N5 2012 All";
 
 const answerArea = document.getElementById("answerArea");
+
+fetch(`${API_URL}?action=answers&materialId=N5-2012`)
+    .then(res => res.json())
+    .then(data => {
+
+        console.log(data);
+
+    });
 
 // ダミーデータ
 const sections = [
