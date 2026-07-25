@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,29 +10,30 @@
 <style>
 
 body{
-    font-family:Arial,sans-serif;
     margin:20px;
+    font-family:Arial,sans-serif;
     background:#f5f5f5;
 }
 
 .container{
     max-width:900px;
     margin:auto;
-    background:#ffffff;
+    background:#fff;
     padding:20px;
     border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
 h1{
     text-align:center;
+    margin-top:0;
 }
 
-select,
-button{
-    padding:10px;
-    font-size:16px;
-    margin:5px;
+#examTitle{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin:20px 0;
 }
 
 #answerArea{
@@ -48,7 +50,8 @@ button{
 }
 
 .answerRow select{
-    width:100px;
+    padding:6px;
+    font-size:16px;
 }
 
 </style>
@@ -61,18 +64,8 @@ button{
 
 <h1>Kaito System</h1>
 
-<div>
-
-<label>教材</label>
-
-<select id="materialSelect">
-    <option value="">教材を選択してください</option>
-</select>
-
-<button id="startBtn">
-開始
-</button>
-
+<div id="examTitle">
+Loading...
 </div>
 
 <hr>
