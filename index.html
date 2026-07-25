@@ -120,53 +120,58 @@ document.getElementById("examTitle").textContent = "JLPT N5 2012 All";
 
 const answerArea = document.getElementById("answerArea");
 
-answerArea.innerHTML = `
-<div class="sectionTitle">語彙</div>
+// ダミーデータ
+const sections = [
+    { title:"語彙", count:3 },
+    { title:"文法", count:2 },
+    { title:"読解", count:2 },
+    { title:"聴解", count:2 }
+];
 
-<div class="answerRow">
-    <div class="answerNumber">問題1</div>
-    <div class="answerButtons">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-    </div>
-</div>
+let html = "";
 
-<div class="answerRow">
-    <div class="answerNumber">問題2</div>
-    <div class="answerButtons">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-    </div>
-</div>
+sections.forEach(section=>{
 
-<div class="answerRow">
-    <div class="answerNumber">問題3</div>
-    <div class="answerButtons">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-    </div>
-</div>
-`;
+    html += `<div class="sectionTitle">${section.title}</div>`;
 
-document.querySelectorAll(".answerButtons").forEach(group => {
+    for(let i=1;i<=section.count;i++){
+
+        html += `
+        <div class="answerRow">
+
+            <div class="answerNumber">
+                問題${i}
+            </div>
+
+            <div class="answerButtons">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+            </div>
+
+        </div>
+        `;
+
+    }
+
+});
+
+answerArea.innerHTML = html;
+
+document.querySelectorAll(".answerButtons").forEach(group=>{
 
     const buttons = group.querySelectorAll("button");
 
-    buttons.forEach(button => {
+    buttons.forEach(button=>{
 
-        button.addEventListener("click", () => {
+        button.onclick=()=>{
 
-            buttons.forEach(b => b.classList.remove("selected"));
+            buttons.forEach(b=>b.classList.remove("selected"));
 
             button.classList.add("selected");
 
-        });
+        };
 
     });
 
