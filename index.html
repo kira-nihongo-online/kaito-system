@@ -124,14 +124,76 @@ const answerArea = document.getElementById("answerArea");
 
 fetch(`${API_URL}?action=answers&materialId=N5-2012`)
     .then(res => res.json())
-    .then(data => {
+    
+.then(data => {
 
-        answerArea.innerHTML = `
-        <h2>取得件数：${data.length}</h2>
-        <pre>${JSON.stringify(data[0], null, 2)}</pre>
-        `;
+    let html = "";
+
+    // セクションごとにまとめる
+    const sections = {};
+
+    data.forEach(item => {
+
+        const section = item.type.split("-")[0];
+
+        if (!sections[section]) {
+            sections[section] = [];
+        }
+
+        sections[section].push(item);
 
     });
+
+    // HTML生成
+    Object.keys(sections).forEach(section => {
+
+        html += `<div class="sectionTitle">${section}</div>`;
+
+        sections[section].forEach((item, index) => {
+
+            html += `
+            <div class="answerRow">
+
+                <div class="answerNumber">
+                    問題${index + 1}
+                </div>
+
+                <div class="answerButtons">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                </div>
+
+            </div>
+            `;
+
+        });
+
+    });
+
+    answerArea.innerHTML = html;
+
+    // ボタン処理
+    document.querySelectorAll(".answerButtons").forEach(group => {
+
+        const buttons = group.querySelectorAll("button");
+
+        buttons.forEach(button => {
+
+            button.onclick = () => {
+
+                buttons.forEach(b => b.classList.remove("selected"));
+
+                button.classList.add("selected");
+
+            };
+
+        });
+
+    });
+
+});
 
 </script>
 
