@@ -231,6 +231,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                         storageKey,
                         JSON.stringify(answers)
                     );
+                    
+                    console.log("保存しました", answers);
 
                 };
 
