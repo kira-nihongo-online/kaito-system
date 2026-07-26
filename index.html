@@ -121,7 +121,17 @@ const API_URL = "https://script.google.com/macros/s/AKfycbz47LCd1aYpTO0gteNXnlzY
 const params = new URLSearchParams(window.location.search);
 const materialId = params.get("material") || "N5-2012";
 
-document.getElementById("examTitle").textContent = "JLPT N5 2012 All";
+fetch(`${API_URL}?action=materials`)
+.then(res => res.json())
+.then(materials => {
+
+    const material = materials.find(m => m.materialId === materialId);
+
+    if (material) {
+        document.getElementById("examTitle").textContent = material.name;
+    }
+
+});
 
 const answerArea = document.getElementById("answerArea");
 
