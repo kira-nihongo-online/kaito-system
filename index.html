@@ -122,7 +122,7 @@ body{
 Loading...
 </div>
 
-<div id="scoreArea"></div>
+<div id="resultArea"></div>
 
 <hr>
 
@@ -305,8 +305,10 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
                if (result.success) {
 
-                   document.getElementById("scoreArea").textContent =
-                       `点数：${result.score} / ${result.total}`;
+                   document.getElementById("resultArea").innerHTML = `
+                   <h2>採点結果</h2>
+                   <div>総合　${result.score} / ${result.total}</div>
+                   `;
 
                    localStorage.removeItem(storageKey);
 
