@@ -236,7 +236,7 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
             html += `
             <div class="answerRow" data-key="${answerKey}">
 
-                <div class="answerNumber">
+                <div class="answerNumber" data-key="${answerKey}">
                     問題${index + 1}
                 </div>
 
@@ -326,6 +326,24 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                console.log(result);
 
                if (result.success) {
+
+               document.querySelectorAll(".answerNumber").forEach(el => {
+                   el.dataset.result = "";
+               });
+
+               Object.keys(result.questionResult).forEach(question => {
+
+                   const el = document.querySelector(
+                       `.answerNumber[data-key="${question}"]`
+                   );
+
+                   if (!el) return;
+
+                   el.textContent =
+                       el.textContent +
+                       (result.questionResult[question] ? "　○" : "　×");
+
+               });
 
                    document.getElementById("resultArea").innerHTML = `
                    <h2>採点結果</h2>
