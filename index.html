@@ -131,6 +131,8 @@ body{
 
 <body>
 
+<div id="top"></div>
+
 <div class="container">
 
 <h1 class="title">
@@ -340,6 +342,9 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                    `;
 
                    localStorage.removeItem(storageKey);
+
+
+                   location.href = "#top";
 
                }
 
