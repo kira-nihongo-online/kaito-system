@@ -118,11 +118,14 @@ Loading...
 
 const API_URL = "https://script.google.com/macros/s/AKfycbz47LCd1aYpTO0gteNXnlzYVZ4hBk04grk6ezj0Xe6xclm9PhGgMc27qKDHTP3mMVvg/exec";
 
+const params = new URLSearchParams(window.location.search);
+const materialId = params.get("material") || "N5-2012";
+
 document.getElementById("examTitle").textContent = "JLPT N5 2012 All";
 
 const answerArea = document.getElementById("answerArea");
 
-fetch(`${API_URL}?action=answers&materialId=N5-2012`)
+fetch(`${API_URL}?action=answers&materialId=${materialId}`)
     .then(res => res.json())
     
 .then(data => {
