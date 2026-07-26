@@ -147,7 +147,7 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
     data.forEach(item => {
 
-        const section = item.type.split("-")[0];
+        const section = item.type;
 
         if (!sections[section]) {
             sections[section] = [];
