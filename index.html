@@ -9,6 +9,21 @@
 
 <style>
 
+#scoreButton{
+    padding:14px 40px;
+    font-size:24px;
+    font-weight:bold;
+    background:#4CAF50;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#scoreButton:hover{
+    background:#43A047;
+}
+
 body{
     margin:20px;
     font-family:Arial,sans-serif;
@@ -269,6 +284,12 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
         });
 
         });
+
+       document.getElementById("scoreButton").onclick = () => {
+
+           alert("採点ボタンが押されました");
+
+    };
 
 </script>
 
