@@ -211,6 +211,25 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
     answerArea.innerHTML = html;
 
+    // 保存された回答を復元
+    document.querySelectorAll(".answerButtons").forEach((group, index) => {
+
+        const savedAnswer = answers[index + 1];
+
+        if (!savedAnswer) return;
+
+        const buttons = group.querySelectorAll("button");
+
+        buttons.forEach(button => {
+
+            if (button.textContent === savedAnswer) {
+                button.classList.add("selected");
+            }
+
+        });
+
+    });
+
     // ボタン処理
         document.querySelectorAll(".answerButtons").forEach((group,index)=>{
 
