@@ -212,10 +212,6 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
     answerArea.innerHTML = html;
 
     // ボタン処理
-    document.querySelectorAll(".answerButtons").forEach(group => {
-
-        const buttons = group.querySelectorAll("button");
-
         document.querySelectorAll(".answerButtons").forEach((group,index)=>{
 
             const buttons = group.querySelectorAll("button");
@@ -239,6 +235,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                 };
 
             });
+
+        });
 
         });
 
