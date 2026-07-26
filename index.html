@@ -335,6 +335,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                    <div>文法　${result.sectionScore.bunpou.score} / ${result.sectionScore.bunpou.total}</div>
 
                    <div>読解　${result.sectionScore.dokkai.score} / ${result.sectionScore.dokkai.total}</div>
+
+                   <div>聴解　${result.sectionScore.choukai.score} / ${result.sectionScore.choukai.total}</div>
                    `;
 
                    localStorage.removeItem(storageKey);
