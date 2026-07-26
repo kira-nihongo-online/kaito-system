@@ -295,16 +295,22 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                    answers: answers
                })
            })
+
            .then(res => res.json())
            .then(result => {
 
                console.log(result);
 
                if (result.success) {
+
+                   alert(`点数：${result.score} / ${result.total}`);
+
                    localStorage.removeItem(storageKey);
+
                }
 
            })
+
            .catch(err => {
 
                console.error(err);
