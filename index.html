@@ -287,7 +287,19 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
        document.getElementById("scoreButton").onclick = () => {
 
-           alert("採点ボタンが押されました");
+           fetch(API_URL, {
+               method: "POST",
+               body: JSON.stringify({
+                   materialId: materialId,
+                   answers: answers
+               })
+           })
+           .then(res => res.json())
+           .then(result => {
+
+               console.log(result);
+
+           });
 
     };
 
