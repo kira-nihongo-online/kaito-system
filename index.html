@@ -160,7 +160,18 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
     // HTML生成
     Object.keys(sections).forEach(section => {
 
-        html += `<div class="sectionTitle">${section}</div>`;
+        let sectionTitle = section;
+
+        if (section === "goi") sectionTitle = "語彙（goi）";
+        if (section === "bunpou") sectionTitle = "文法（bunpou）";
+        if (section === "dokkai") sectionTitle = "読解（dokkai）";
+
+        if (section.startsWith("choukai")) {
+            const no = section.replace("choukai", "");
+            sectionTitle = `聴解${no}（${section}）`;
+        }
+
+        html += `<div class="sectionTitle">${sectionTitle}</div>`;
 
         sections[section].forEach((item, index) => {
 
