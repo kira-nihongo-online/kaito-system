@@ -188,8 +188,10 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
         sections[section].forEach((item, index) => {
 
+        const answerKey = section + "-" + (index + 1);
+
             html += `
-            <div class="answerRow">
+            <div class="answerRow" data-key="${answerKey}">
 
                 <div class="answerNumber">
                     問題${index + 1}
@@ -214,7 +216,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
     // 保存された回答を復元
     document.querySelectorAll(".answerButtons").forEach((group, index) => {
 
-        const savedAnswer = answers[index + 1];
+        const answerKey = group.closest(".answerRow").dataset.key;
+        const savedAnswer = answers[answerKey];
 
         if (!savedAnswer) return;
 
@@ -244,7 +247,9 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                     button.classList.add("selected");
 
                     // 回答保存
-                    answers[index+1]=button.textContent;
+                    const answerKey = group.closest(".answerRow").dataset.key;
+
+                    answers[answerKey] = button.textContent;
 
                     localStorage.setItem(
                         storageKey,
