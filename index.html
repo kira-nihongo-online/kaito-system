@@ -126,8 +126,8 @@ body{
 }
 
 .resultCorrect{
-    color:#2E7D32;
-    font-size:30px;
+    color:#00A000;
+    font-size:34px;
     font-weight:bold;
 }
 
@@ -138,7 +138,7 @@ body{
 }
 
 .correctAnswer{
-    color:#1565C0;
+    color:#D32F2F;
     font-size:22px;
     font-weight:bold;
 }
@@ -364,8 +364,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                    } else {
 
                        el.innerHTML += `
-                           <span class="resultWrong">×</span>
-                           <span class="correctAnswer">（正解：${result.correctAnswers[question]}）</span>
+                           <span class="resultWrong">❌</span>
+                           <span class="correctAnswer"> 正解：${result.correctAnswers[question]}</span>
                        `;
 
                    }
