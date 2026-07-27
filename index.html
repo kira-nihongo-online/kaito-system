@@ -339,9 +339,15 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
                    if (!el) return;
 
-                   el.textContent =
-                       el.textContent +
-                       (result.questionResult[question] ? "　○" : "　×");
+                   if (result.questionResult[question]) {
+
+                       el.textContent += "　○";
+
+                   } else {
+
+                       el.textContent += "　×（正解：" + result.correctAnswers[question] + "）";
+
+                   }
 
                });
 
