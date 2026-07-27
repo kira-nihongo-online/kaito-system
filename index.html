@@ -443,6 +443,7 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                method: "POST",
                contentType: "application/json",
                body: JSON.stringify({
+                   userName: userName.value.trim(),
                    materialId: materialId,
                    answers: answers
                })
