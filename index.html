@@ -519,6 +519,22 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
        };
 
+               const startButton = document.getElementById("startButton");
+               const startOverlay = document.getElementById("startOverlay");
+               const userName = document.getElementById("userName");
+
+               startButton.addEventListener("click", () => {
+
+                   if (userName.value.trim() === "") {
+                       alert("Please enter your name.");
+                       userName.focus();
+                       return;
+                   }
+
+                   startOverlay.style.display = "none";
+
+               });
+
 
 </script>
 
