@@ -175,6 +175,46 @@ body{
     font-weight:bold;
 }
 
+#startOverlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10000;
+}
+
+.startBox{
+    background:#fff;
+    padding:35px;
+    border-radius:12px;
+    text-align:center;
+    width:320px;
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+}
+
+.startBox h2{
+    margin-top:0;
+}
+
+#userName{
+    width:100%;
+    padding:10px;
+    font-size:20px;
+    margin:20px 0;
+    box-sizing:border-box;
+}
+
+#startButton{
+    padding:12px 35px;
+    font-size:20px;
+    cursor:pointer;
+}
+
 </style>
 
 </head>
@@ -182,6 +222,29 @@ body{
 <body>
 
 <div id="top"></div>
+
+<div id="startOverlay">
+
+    <div class="startBox">
+
+        <h2>Kaito System</h2>
+
+        <p>名前を入力してください</p>
+
+        <input
+            type="text"
+            id="userName"
+            placeholder="名前">
+
+        <br>
+
+        <button id="startButton">
+            スタート
+        </button>
+
+    </div>
+
+</div>
 
 <div class="container">
 
