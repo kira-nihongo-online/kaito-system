@@ -125,6 +125,24 @@ body{
     border-color:#ff9800;
 }
 
+.resultCorrect{
+    color:#2E7D32;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.resultWrong{
+    color:#D32F2F;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.correctAnswer{
+    color:#1565C0;
+    font-size:22px;
+    font-weight:bold;
+}
+
 </style>
 
 </head>
@@ -341,11 +359,14 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
                    if (result.questionResult[question]) {
 
-                       el.textContent += "　○";
+                       el.innerHTML += ` <span class="resultCorrect">○</span>`;
 
                    } else {
 
-                       el.textContent += "　×（正解：" + result.correctAnswers[question] + "）";
+                       el.innerHTML += `
+                           <span class="resultWrong">×</span>
+                           <span class="correctAnswer">（正解：${result.correctAnswers[question]}）</span>
+                       `;
 
                    }
 
