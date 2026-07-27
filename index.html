@@ -523,6 +523,16 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                const startOverlay = document.getElementById("startOverlay");
                const userName = document.getElementById("userName");
 
+               const savedName = localStorage.getItem("userName");
+
+               if (savedName) {
+                   userName.value = savedName;
+               }
+
+               startButton.addEventListener("click", () => {
+                   // ...
+               });
+
                startButton.addEventListener("click", () => {
 
                    if (userName.value.trim() === "") {
@@ -530,6 +540,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                        userName.focus();
                        return;
                    }
+
+                   localStorage.setItem("userName", userName.value.trim());
 
                    startOverlay.style.display = "none";
 
