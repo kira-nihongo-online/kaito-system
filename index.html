@@ -428,8 +428,6 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                         JSON.stringify(answers)
                     );
 
-                    console.log("保存しました", answers);
-
                 };
 
             });
@@ -455,13 +453,8 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                    answers: answers
                })
            })
-
            .then(res => res.json())
            .then(result => {
-
-               console.log(result);
-
-               if (result.success) {
 
                document.getElementById("loadingOverlay").style.display = "none";
 
