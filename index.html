@@ -315,7 +315,7 @@ if (saved) {
 
 fetch(`${API_URL}?action=answers&materialId=${materialId}`)
     .then(res => res.json())
-
+    
 .then(data => {
 
     let html = "";
@@ -353,13 +353,13 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
 
         sections[section].forEach((item, index) => {
 
-        const answerKey = section + "-" + item.number;
+        const answerKey = section + "-" + (index + 1);
 
             html += `
             <div class="answerRow" data-key="${answerKey}">
 
                 <div class="answerNumber" data-key="${answerKey}">
-                    問題${item.number}
+                    問題${index + 1}
                 </div>
 
                 <div class="answerButtons">
@@ -420,7 +420,7 @@ fetch(`${API_URL}?action=answers&materialId=${materialId}`)
                         storageKey,
                         JSON.stringify(answers)
                     );
-
+                    
                     console.log("保存しました", answers);
 
                 };
